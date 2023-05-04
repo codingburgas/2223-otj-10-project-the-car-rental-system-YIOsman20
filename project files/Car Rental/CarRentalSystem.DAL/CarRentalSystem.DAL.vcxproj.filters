@@ -11,4 +11,15 @@
       <UniqueIdentifier>{4406214c-836e-43b0-bfd7-57dfcc539c6f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Car.hpp">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Owner.hpp">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Ownership.hpp">
+      <Filter>Models</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
