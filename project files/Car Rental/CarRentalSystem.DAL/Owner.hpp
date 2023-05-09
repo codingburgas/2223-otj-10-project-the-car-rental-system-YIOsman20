@@ -17,7 +17,7 @@ public:
 
 	};
 
-	Owner(int id, std::string firstName, std::string lastName,std::string email,std::string phoneNumber,std::string address)
+	Owner(int id, std::string firstName, std::string lastName, std::string email, std::string phoneNumber, std::string address)
 	{
 		m_id = id;
 		m_firstName = firstName;
@@ -35,6 +35,47 @@ public:
 	{
 		m_id = id;
 	}
+	std::string GetFirstName()
+	{
+		return m_firstName;
+	}
+	void SetFirstName(std::string firstName)
+	{
+		m_firstName = firstName;
+	}
+	std::string GetLastName()
+	{
+		return m_lastName;
+	}
+	void SetFirstName(std::string lastName)
+	{
+		m_lastName = lastName;
+	}
+	std::string GetEmail()
+	{
+		return m_email;
+	}
+	void SetFirstName(std::string email)
+	{
+		m_email = email;
+	}
+	std::string GetPhoneNumber()
+	{
+		return m_phoneNumber;
+	}
+	void SetPhoneNumber(std::string phoneNumber)
+	{
+		m_phoneNumber = phoneNumber;
+	}
+	std::string GetAddress()
+	{
+		return m_address;
+	}
+	void SetAddress(std::string address)
+	{
+		m_address = address;
+	}
+	
 	
 };
 
