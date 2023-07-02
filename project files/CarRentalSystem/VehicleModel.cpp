@@ -4,8 +4,9 @@
 #include "VehicleModel.h"
 
 // Constructor
-VehicleModel::VehicleModel(int year, const std::string& make, const std::string& model) 
+VehicleModel::VehicleModel(int id,int year, const std::string& make, const std::string& model) 
 {
+    this->id = id;
     this->year = year;
     this->make = make;
     this->model = model;
@@ -18,6 +19,10 @@ VehicleModel::~VehicleModel()
 }
 
 // Getter methods
+int VehicleModel::getId() const
+{
+    return id;
+}
 int VehicleModel::getYear() const
 {
     return year;
@@ -34,6 +39,10 @@ std::string VehicleModel::getModel() const
 }
 
 // Setter methods
+void VehicleModel::setId(int id)
+{
+    this->id = id;
+}
 void VehicleModel::setYear(int year) 
 {
     this->year = year;
@@ -52,6 +61,7 @@ void VehicleModel::setModel(const std::string& model)
 // Other methods
 void VehicleModel::displayInfo() const 
 {
+    std::cout << "Id: " << id << std::endl;
     std::cout << "Year: " << year << std::endl;
     std::cout << "Make: " << make << std::endl;
     std::cout << "Model: " << model << std::endl;

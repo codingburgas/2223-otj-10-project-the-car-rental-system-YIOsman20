@@ -1,5 +1,6 @@
 #include "VehicleController.h"
 #include <string>
+#include <sstream>
 
 // Constructor
 VehicleController::VehicleController(const std::string& filename):service(filename) 
@@ -29,6 +30,21 @@ void VehicleController::run()
         {
         case 1: 
         {
+            std::ifstream file(filename);
+            std::string lastLine;
+            std::string id;
+            std::string line;
+            while (std::getline(file, line))
+            {
+                lastLine = line;
+            }
+            std::istringstream lineStream(lastLine);
+            std::getline(lineStream, id, ',');
+            int idInt = 0;
+            std::stringstream(id) >> idInt;
+            file.close();
+
+            int id;
             int year;
             std::string make, model;
 
@@ -42,7 +58,7 @@ void VehicleController::run()
             std::cout << "Enter model: ";
             std::getline(std::cin, model);
 
-            service.createVehicle(year, make, model);
+            service.createVehicle(id,year, make, model);
 
             std::cout << "Vehicle added successfully." << std::endl;
 
@@ -63,7 +79,6 @@ void VehicleController::run()
                 for (const auto& vehicle : vehicles) 
                 {
                     vehicle.displayInfo();
-
                     std::cout << std::endl;
                 }
             }
