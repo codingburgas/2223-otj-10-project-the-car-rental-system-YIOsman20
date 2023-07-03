@@ -16,14 +16,10 @@ VehicleRepository::VehicleRepository(const std::string& filename)
 // Create a new vehicle record
 void VehicleRepository::addVehicle(const VehicleModel& vehicle) 
 {
-   
     std::ofstream file(filename, std::ios::app);
-    
     if (file.is_open()) 
     {
-       
-
-        file << vehicle.getId() << vehicle.getYear() << "," << vehicle.getMake() << "," << vehicle.getModel() << std::endl;
+        file << vehicle.getYear() << "," << vehicle.getMake() << "," << vehicle.getModel() << std::endl;
         file.close();
 
         std::cout << "Vehicle record created successfully." << std::endl;
@@ -39,22 +35,13 @@ std::vector<VehicleModel> VehicleRepository::getVehicles()
 {
     std::vector<VehicleModel> vehicles;
     std::ifstream file(filename);
-    
 
     if (file.is_open()) 
     {
         std::string line;
-        while (std::getline(file, line))
-        {
-            lastLine = line;
-        }
-        std::istringstream lineStream(lastLine);
-        std::getline(lineStream, id, ',');
-        int idInt;
-        std::stringstream(id) >> idInt;
+
         while (std::getline(file, line)) 
         {
-
             std::stringstream lineString(line);
             std::string token;
 

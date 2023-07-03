@@ -12,26 +12,23 @@ class VehicleModel
 {
     private:
         // Member variables
-        int id;
         int year;           // Year of manufacture
         std::string make;   // Make of the vehicle
         std::string model;  // Model of the vehicle
 
     public:
         // Constructor
-        VehicleModel(int id,int year, const std::string& make, const std::string& model);
+        VehicleModel(int year, const std::string& make, const std::string& model);
 
         // Destructor
         ~VehicleModel();
 
         // Getter methods
-        int getId() const;
         int getYear() const;
         std::string getMake() const;
         std::string getModel() const;
 
         // Setter methods
-        void setId(int id);
         void setYear(int year);
         void setMake(const std::string& make);
         void setModel(const std::string& model);

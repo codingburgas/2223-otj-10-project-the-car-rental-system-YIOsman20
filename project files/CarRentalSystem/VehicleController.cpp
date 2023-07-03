@@ -1,6 +1,7 @@
 #include "VehicleController.h"
 #include <string>
-#include <sstream>
+#include <Windows.h>
+
 
 // Constructor
 VehicleController::VehicleController(const std::string& filename):service(filename) 
@@ -14,37 +15,27 @@ void VehicleController::run()
 
     do 
     {
+        HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(consoleHandle, FOREGROUND_GREEN | FOREGROUND_INTENSITY);
         // Display menu options
-        std::cout << "Vehicle Management Application" << std::endl;
-        std::cout << "1. Add a new vehicle" << std::endl;
-        std::cout << "2. View all vehicles" << std::endl;
-        std::cout << "3. Update a vehicle" << std::endl;
-        std::cout << "4. Delete a vehicle" << std::endl;
-        std::cout << "0. Exit" << std::endl;
+        std::cout << "+----------------------+" << std::endl;
+        std::cout << "| Vehicle Management   |" << std::endl;
+        std::cout << "+----------------------+" << std::endl;
+        std::cout << "| 1. Add a new vehicle |" << std::endl;
+        std::cout << "| 2. View all vehicles |" << std::endl;
+        std::cout << "| 3. Update a vehicle  |" << std::endl;
+        std::cout << "| 4. Delete a vehicle  |" << std::endl;
+        std::cout << "| 0. Exit              |" << std::endl;
+        std::cout << "+----------------------+" << std::endl;
         std::cout << "Enter your choice: ";
 
         std::cin >> choice;
-
+        system("cls");
         // Handle user's choice
         switch (choice) 
         {
         case 1: 
         {
-            std::ifstream file(filename);
-            std::string lastLine;
-            std::string id;
-            std::string line;
-            while (std::getline(file, line))
-            {
-                lastLine = line;
-            }
-            std::istringstream lineStream(lastLine);
-            std::getline(lineStream, id, ',');
-            int idInt = 0;
-            std::stringstream(id) >> idInt;
-            file.close();
-
-            int id;
             int year;
             std::string make, model;
 
@@ -58,9 +49,11 @@ void VehicleController::run()
             std::cout << "Enter model: ";
             std::getline(std::cin, model);
 
-            service.createVehicle(id,year, make, model);
-
+            service.createVehicle(year, make, model);
+            system("cls");
             std::cout << "Vehicle added successfully." << std::endl;
+            system("pause");
+            system("cls");
 
             break;
         }
@@ -71,16 +64,23 @@ void VehicleController::run()
             if (vehicles.empty()) 
             {
                 std::cout << "No vehicles found." << std::endl;
+                system("pause");
+                system("cls");
             }
             else 
             {
-                std::cout << "Vehicle List:" << std::endl;
+                int counter = 1;
+                std::cout << "Vehicle List:" << std::endl << std::endl;
 
                 for (const auto& vehicle : vehicles) 
                 {
+                    std::cout << "Vehicle " << counter++ << std::endl;
                     vehicle.displayInfo();
+
                     std::cout << std::endl;
                 }
+                system("pause");
+                system("cls");
             }
             break;
         }
@@ -88,6 +88,29 @@ void VehicleController::run()
         {
             int oldYear, newYear;
             std::string oldMake, oldModel, newMake, newModel;
+            std::vector<VehicleModel> vehicles = service.getAllVehicles();
+
+            if (vehicles.empty())
+            {
+                std::cout << "No vehicles found." << std::endl;
+                system("pause");
+                system("cls");
+            }
+            else
+            {
+                int counter = 1;
+                std::cout << "Vehicle List:" << std::endl << std::endl;
+
+                for (const auto& vehicle : vehicles)
+                {
+                    std::cout << "Vehicle " << counter++ << std::endl;
+                    vehicle.displayInfo();
+
+                    std::cout << std::endl;
+                }
+                system("pause");
+                system("cls");
+            }
 
             std::cout << "Enter the details of the vehicle to update:" << std::endl;
 
@@ -112,11 +135,35 @@ void VehicleController::run()
             std::getline(std::cin, newModel);
 
             service.updateVehicle(oldYear, oldMake, oldModel, newYear, newMake, newModel);
+            system("pause");
+            system("cls");
 
             break;
         }
         case 4: 
         {
+            std::vector<VehicleModel> vehicles = service.getAllVehicles();
+
+            if (vehicles.empty())
+            {
+                std::cout << "No vehicles found." << std::endl;
+                system("pause");
+                system("cls");
+            }
+            else
+            {
+                int counter = 1;
+                std::cout << "Vehicle List:" << std::endl << std::endl;
+
+                for (const auto& vehicle : vehicles)
+                {
+                    std::cout << "Vehicle " << counter++ << std::endl;
+                    vehicle.displayInfo();
+
+                    std::cout << std::endl;
+                }
+
+            }
             int year;
             std::string make, model;
 
@@ -133,6 +180,8 @@ void VehicleController::run()
             std::getline(std::cin, model);
 
             service.deleteVehicle(year, make, model);
+            system("pause");
+            system("cls");
 
             break;
         }
@@ -143,6 +192,8 @@ void VehicleController::run()
         default:
 
             std::cout << "Invalid choice. Please try again." << std::endl;
+            system("pause");
+            system("cls");
         }
 
         std::cout << std::endl;
