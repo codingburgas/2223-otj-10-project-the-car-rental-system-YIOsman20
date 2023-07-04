@@ -37,7 +37,7 @@ void VehicleController::run()
         {
         case 1: 
         {
-            int year;
+            int year,price;
             std::string make, model;
 
             std::cout << "Enter year: ";
@@ -74,8 +74,10 @@ void VehicleController::run()
 
             std::cout << "Enter model: ";
             std::getline(std::cin, model);
+            std::cout << "Enter price: ";
+            std::cin >> price;
 
-            service.createVehicle(id,year, make, model);
+            service.createVehicle(id,year, make, model,price);
             system("cls");
             std::cout << "Vehicle added successfully." << std::endl;
             system("pause");
@@ -113,7 +115,7 @@ void VehicleController::run()
         case 3: 
         {
             int id;
-            int oldYear, newYear;
+            int oldYear,newPrice, newYear;
             std::string oldMake, oldModel, newMake, newModel;
             std::vector<VehicleModel> vehicles = service.getAllVehicles();
 
@@ -167,9 +169,12 @@ void VehicleController::run()
             std::cout << "Enter new model: ";
             std::getline(std::cin, newModel);
 
+            std::cout << "Enter new price: ";
+            std::cin >> newPrice;
 
 
-            service.updateVehicle(id, 0, "oldMake", "oldModel", 0, newYear, newMake, newModel);
+
+            service.updateVehicle(id, 0, "oldMake", "oldModel",0, 0, newYear, newMake, newModel,newPrice);
             system("pause");
             system("cls");
 
@@ -199,7 +204,7 @@ void VehicleController::run()
                 }
 
             }
-            int year,id;
+            int year,id,price;
             std::string make, model;
 
             std::cout << "Enter the details of the vehicle to delete:" << std::endl;
@@ -216,7 +221,7 @@ void VehicleController::run()
             //std::cout << "Enter model: ";
             //std::getline(std::cin, model);
 
-            service.deleteVehicle(id, 9, "make", "a");
+            service.deleteVehicle(id, 9, "make", "a",0);
             system("pause");
             system("cls");
 

@@ -14,14 +14,14 @@ class VehicleService
         VehicleService(const std::string& filename);
 
         // Create a new vehicle record
-        void createVehicle(int id,int year, const std::string& make, const std::string& model);
+        void createVehicle(int id,int year, const std::string& make, const std::string& model,int price);
 
         // Read all vehicle records
         std::vector<VehicleModel> getAllVehicles();
 
         // Update an existing vehicle record
-        void updateVehicle(int oldId,int oldYear, const std::string& oldMake, const std::string& oldModel,int newId, int newYear, const std::string& newMake, const std::string& newModel);
+        void updateVehicle(int oldId,int oldYear, const std::string& oldMake, const std::string& oldModel,int oldPrice,int newId, int newYear, const std::string& newMake, const std::string& newModel, int newPrice);
 
         // Delete a vehicle record
-        void deleteVehicle(int id,int year, const std::string& make, const std::string& model);
+        void deleteVehicle(int id,int year, const std::string& make, const std::string& model,int price);
 };

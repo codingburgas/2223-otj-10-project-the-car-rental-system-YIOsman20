@@ -4,12 +4,13 @@
 #include "VehicleModel.h"
 
 // Constructor
-VehicleModel::VehicleModel(int id,int year, const std::string& make, const std::string& model) 
+VehicleModel::VehicleModel(int id,int year, const std::string& make, const std::string& model,int price) 
 {
     this->id = id;
     this->year = year;
     this->make = make;
     this->model = model;
+    this->price = price;
 }
 
 // Destructor
@@ -37,6 +38,10 @@ std::string VehicleModel::getModel() const
 {
     return model;
 }
+int VehicleModel::getPrice() const
+{
+    return price;
+}
 
 // Setter methods
 void VehicleModel::setId(int id)
@@ -57,7 +62,10 @@ void VehicleModel::setModel(const std::string& model)
 {
     this->model = model;
 }
-
+void VehicleModel::setPrice(int price)
+{
+    this->price = price;
+}
 // Other methods
 void VehicleModel::displayInfo() const 
 {
@@ -65,4 +73,5 @@ void VehicleModel::displayInfo() const
     std::cout << "Year: " << year << std::endl;
     std::cout << "Make: " << make << std::endl;
     std::cout << "Model: " << model << std::endl;
+    std::cout << "Price: " << price << std::endl;
 }

@@ -16,10 +16,11 @@ class VehicleModel
         int year;           // Year of manufacture
         std::string make;   // Make of the vehicle
         std::string model;  // Model of the vehicle
+        int price;
 
     public:
         // Constructor
-        VehicleModel(int id,int year, const std::string& make, const std::string& model);
+        VehicleModel(int id,int year, const std::string& make, const std::string& model,int price);
 
         // Destructor
         ~VehicleModel();
@@ -29,12 +30,14 @@ class VehicleModel
         int getYear() const;
         std::string getMake() const;
         std::string getModel() const;
+        int getPrice() const;
 
         // Setter methods
         void setId(int id);
         void setYear(int year);
         void setMake(const std::string& make);
         void setModel(const std::string& model);
+        void setPrice(int price);
 
         // Other methods
         void displayInfo() const;
