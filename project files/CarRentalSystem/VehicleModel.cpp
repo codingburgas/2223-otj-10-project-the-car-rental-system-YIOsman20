@@ -66,12 +66,32 @@ void VehicleModel::setPrice(int price)
 {
     this->price = price;
 }
-// Other methods
+void VehicleModel::displayBudgetInfo(int budget, int duration) const
+{
+    if (price * duration <= budget)
+    {
+        std::cout << "+----------------------+" << std::endl;
+        std::cout << "Id:" << id << std::endl;
+        std::cout << "Year: " << year << std::endl;
+        std::cout << "Make: " << make << std::endl;
+        std::cout << "Model: " << model << std::endl;
+        std::cout << "Price: " << price << std::endl;
+        std::cout << "+----------------------+" << std::endl;
+        std::cout << std::endl;
+
+    }
+}
+
 void VehicleModel::displayInfo() const 
 {
+    std::cout << "+----------------------+" << std::endl;
     std::cout << "Id:" << id << std::endl;
     std::cout << "Year: " << year << std::endl;
     std::cout << "Make: " << make << std::endl;
     std::cout << "Model: " << model << std::endl;
     std::cout << "Price: " << price << std::endl;
+    std::cout << "+----------------------+" << std::endl;
+    std::cout << std::endl;
+
 }
+

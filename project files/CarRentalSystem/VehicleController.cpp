@@ -26,6 +26,7 @@ void VehicleController::run()
         std::cout << "| 2. View all vehicles |" << std::endl;
         std::cout << "| 3. Update a vehicle  |" << std::endl;
         std::cout << "| 4. Delete a vehicle  |" << std::endl;
+        std::cout << "| 5. Vehicle finder    |" << std::endl;
         std::cout << "| 0. Exit              |" << std::endl;
         std::cout << "+----------------------+" << std::endl;
         std::cout << "Enter your choice: ";
@@ -102,7 +103,6 @@ void VehicleController::run()
 
                 for (const auto& vehicle : vehicles) 
                 {
-                    std::cout << "Vehicle " << counter++ << std::endl;
                     vehicle.displayInfo();
 
                     std::cout << std::endl;
@@ -222,6 +222,31 @@ void VehicleController::run()
             //std::getline(std::cin, model);
 
             service.deleteVehicle(id, 9, "make", "a",0);
+            system("pause");
+            system("cls");
+
+            break;
+        }
+        case 5:
+        {
+
+
+
+
+            int budget;
+            int duration;
+            int counter = 1;
+            std::vector<VehicleModel> vehicles = service.getAllVehicles();
+
+            std::cout << "Enter budget: ";
+            std::cin >> budget;
+            std::cout << "Enter duration: ";
+            std::cin >> duration;
+            system("cls");
+            for (const auto& vehicle : vehicles)
+            {
+                vehicle.displayBudgetInfo(budget, duration);
+            }
             system("pause");
             system("cls");
 

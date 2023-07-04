@@ -38,6 +38,7 @@ class VehicleModel
         void setMake(const std::string& make);
         void setModel(const std::string& model);
         void setPrice(int price);
+        void displayBudgetInfo(int budget, int duration) const;
 
         // Other methods
         void displayInfo() const;

@@ -1,1 +1,100 @@
-7,2004,audi,a2,30
+1,1997,Suzuki,Sidekick,149
+2,1998,Dodge,Grand Caravan,901
+3,1998,Honda,Passport,426
+4,1997,GMC,Safari,947
+5,1999,Buick,Riviera,646
+6,2006,Acura,RSX,688
+7,1992,Mercedes-Benz,400E,900
+8,1993,Chevrolet,Sportvan G10,494
+9,2008,Aston Martin,Vantage,109
+10,2005,BMW,545,906
+11,1996,Toyota,Celica,384
+12,2009,Ferrari,F430,324
+13,2005,Mercury,Grand Marquis,935
+14,1993,Geo,Tracker,605
+15,1993,Dodge,Stealth,597
+16,1992,Dodge,Shadow,674
+17,2008,Honda,S2000,376
+18,2006,Nissan,Altima,135
+19,1997,Mazda,B-Series Plus,896
+20,1999,Hyundai,Accent,632
+21,1992,GMC,Suburban 1500,265
+22,2003,Volkswagen,GTI,487
+23,2012,Toyota,RAV4,140
+24,1992,Lincoln,Town Car,883
+25,2009,Rolls-Royce,Phantom,282
+26,1993,Mercury,Grand Marquis,578
+27,1992,Geo,Tracker,104
+28,2003,Honda,Odyssey,282
+29,2012,Toyota,Avalon,249
+30,2002,Land Rover,Discovery Series II,322
+31,2006,Suzuki,Swift,948
+32,2004,Chevrolet,Venture,984
+33,1993,Chevrolet,Sportvan G30,378
+34,1993,Isuzu,Trooper,384
+35,2002,Chrysler,Sebring,340
+36,1987,Volkswagen,GTI,761
+37,2009,Lincoln,Navigator L,48
+38,2012,Volvo,S60,773
+39,1992,Ford,F150,923
+40,1996,Volkswagen,rio,951
+41,1997,Mercury,Villager,408
+42,1997,Ford,Windstar,508
+43,2010,Infiniti,G37,826
+44,2000,Acura,Integra,356
+45,2007,Ferrari,612 Scaglietti,345
+46,2007,BMW,530,1
+47,1999,Corbin,Sparrow,469
+48,2008,Maserati,Quattroporte,122
+49,2007,BMW,3 Series,574
+50,2010,Volkswagen,Eos,458
+51,2012,Jeep,Patriot,124
+52,1996,Mitsubishi,Mirage,122
+53,2003,Dodge,Ram,254
+54,2009,Ford,Explorer Sport Trac,515
+55,1989,Pontiac,Grand Am,231
+56,2009,Pontiac,G8,19
+57,2010,Ford,Focus,903
+58,1996,Mitsubishi,Truck,374
+59,1992,Toyota,Xtra,800
+60,2010,BMW,M5,40
+61,1992,Jaguar,XJ Series,6
+62,2010,Porsche,Cayenne,982
+63,1980,Ford,Mustang,51
+64,1998,Mitsubishi,3000GT,821
+65,1997,Isuzu,Oasis,867
+66,2003,BMW,Z8,658
+67,1992,BMW,M5,429
+68,2000,Isuzu,Trooper,572
+69,2008,Isuzu,i-290,105
+70,2007,Mercedes-Benz,SLR McLaren,358
+71,2009,Smart,Fortwo,262
+72,2005,Chevrolet,Uplander,74
+73,1992,Dodge,Ram Van B350,125
+74,1992,Mitsubishi,RVR,109
+75,1996,Chrysler,Cirrus,610
+76,1999,BMW,M3,418
+77,2001,GMC,Jimmy,916
+78,2008,BMW,M5,782
+79,1993,Volkswagen,Corrado,851
+80,2008,Ford,Taurus,963
+81,2010,Mazda,CX-7,502
+82,2009,Dodge,Durango,947
+83,1997,Jeep,Wrangler,436
+84,1989,Pontiac,LeMans,840
+85,2010,Chevrolet,Avalanche,27
+86,2003,Pontiac,Grand Prix,510
+87,2009,Chevrolet,Suburban 2500,131
+88,1985,Mitsubishi,Pajero,644
+89,1976,Volkswagen,Golf,463
+90,2011,Land Rover,Range Rover Sport,188
+91,2005,Chrysler,300C,291
+92,1991,Pontiac,Sunbird,479
+93,2001,Nissan,Pathfinder,777
+94,2010,Ford,Transit Connect,765
+95,2001,Toyota,Camry,96
+96,2008,Ford,E150,566
+97,2005,BMW,760,346
+98,2001,Isuzu,VehiCROSS,964
+99,2002,Chevrolet,Suburban 1500,724
+100,1991,Mitsubishi,Chariot,965
