@@ -19,7 +19,7 @@ void VehicleRepository::addVehicle(const VehicleModel& vehicle)
     std::ofstream file(filename, std::ios::app);
     if (file.is_open()) 
     {
-        file << vehicle.getYear() << "," << vehicle.getMake() << "," << vehicle.getModel() << std::endl;
+        file << vehicle.getId() << "," << vehicle.getYear() << "," << vehicle.getMake() << "," << vehicle.getModel() << std::endl;
         file.close();
 
         std::cout << "Vehicle record created successfully." << std::endl;
@@ -46,6 +46,10 @@ std::vector<VehicleModel> VehicleRepository::getVehicles()
             std::string token;
 
             std::getline(lineString, token, ',');
+            int idInt = 0;
+            std::stringstream(token) >> idInt;
+
+            std::getline(lineString, token, ',');
             int yearInt = 0;
             std::stringstream(token) >> yearInt;
 
@@ -55,7 +59,7 @@ std::vector<VehicleModel> VehicleRepository::getVehicles()
             std::getline(lineString, token);
             std::string model = token;
 
-            VehicleModel vehicle(yearInt, make, model);
+            VehicleModel vehicle(idInt,yearInt, make, model);
             vehicles.push_back(vehicle);
         }
         file.close();
@@ -73,6 +77,8 @@ std::vector<VehicleModel> VehicleRepository::getVehicles()
 void VehicleRepository::updateVehicle(const VehicleModel& oldVehicle, const VehicleModel& newVehicle)
 {
     std::ifstream fileIn(filename);
+    int id;
+    id =oldVehicle.getId();
 
     if (fileIn.is_open()) 
     {
@@ -88,6 +94,10 @@ void VehicleRepository::updateVehicle(const VehicleModel& oldVehicle, const Vehi
                 std::string token;
 
                 std::getline(lineString, token, ',');
+                int idInt = 0;
+                std::stringstream(token) >> idInt;
+
+                std::getline(lineString, token, ',');
                 int yearInt = 0;
                 std::stringstream(token) >> yearInt;
 
@@ -97,13 +107,15 @@ void VehicleRepository::updateVehicle(const VehicleModel& oldVehicle, const Vehi
                 std::getline(lineString, token);
                 std::string model = token;
 
-                VehicleModel currentVehicle(yearInt, make, model);
+                VehicleModel currentVehicle(idInt,yearInt, make, model);
 
-                if (currentVehicle.getYear() == oldVehicle.getYear() &&
-                    currentVehicle.getMake() == oldVehicle.getMake() &&
-                    currentVehicle.getModel() == oldVehicle.getModel()) 
+                if (id == currentVehicle.getId()
+                    //currentVehicle.getYear() == oldVehicle.getYear() &&
+                    //currentVehicle.getMake() == oldVehicle.getMake() &&
+                    //currentVehicle.getModel() == oldVehicle.getModel()
+                    ) 
                 {
-                    fileOut << newVehicle.getYear() << "," << newVehicle.getMake() << "," << newVehicle.getModel() << std::endl;
+                    fileOut << id << "," << newVehicle.getYear() << "," << newVehicle.getMake() << "," << newVehicle.getModel() << std::endl;
 
                     std::cout << "Vehicle record updated successfully." << std::endl;
                 }
@@ -147,6 +159,10 @@ void VehicleRepository::removeVehicle(const VehicleModel& vehicle)
                 std::string token;
 
                 std::getline(lineString, token, ',');
+                int idInt = 0;
+                std::stringstream(token) >> idInt;
+
+                std::getline(lineString, token, ',');
                 int yearInt = 0;
                 std::stringstream(token) >> yearInt;
 
@@ -156,11 +172,13 @@ void VehicleRepository::removeVehicle(const VehicleModel& vehicle)
                 std::getline(lineString, token);
                 std::string model = token;
 
-                VehicleModel currentVehicle(yearInt, make, model);
+                VehicleModel currentVehicle(idInt,yearInt, make, model);
 
-                if (currentVehicle.getYear() != vehicle.getYear() ||
-                    currentVehicle.getMake() != vehicle.getMake() ||
-                    currentVehicle.getModel() != vehicle.getModel()) 
+                if (currentVehicle.getId() != vehicle.getId()
+                    //currentVehicle.getYear() != vehicle.getYear() ||
+                    //currentVehicle.getMake() != vehicle.getMake() ||
+                   // currentVehicle.getModel() != vehicle.getModel()
+                    ) 
                 {
                     fileOut << line << std::endl;
                 }

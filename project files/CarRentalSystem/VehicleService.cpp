@@ -8,9 +8,9 @@ VehicleService::VehicleService(const std::string& filename) : repository(filenam
 }
 
 // Create a new vehicle record
-void VehicleService::createVehicle(int year, const std::string& make, const std::string& model)
+void VehicleService::createVehicle(int id,int year, const std::string& make, const std::string& model)
 {
-    VehicleModel vehicle(year, make, model);
+    VehicleModel vehicle(id,year, make, model);
 
     repository.addVehicle(vehicle);
 }
@@ -22,16 +22,16 @@ std::vector<VehicleModel> VehicleService::getAllVehicles()
 }
 
 // Update an existing vehicle record
-void VehicleService::updateVehicle(int oldYear, const std::string& oldMake, const std::string& oldModel, int newYear, const std::string& newMake, const std::string& newModel)
+void VehicleService::updateVehicle(int oldId,int oldYear, const std::string& oldMake, const std::string& oldModel,int newId, int newYear, const std::string& newMake, const std::string& newModel)
 {
-    VehicleModel oldVehicle(oldYear, oldMake, oldModel);
-    VehicleModel newVehicle(newYear, newMake, newModel);
+    VehicleModel oldVehicle(oldId,oldYear, oldMake, oldModel);
+    VehicleModel newVehicle(newId,newYear, newMake, newModel);
     repository.updateVehicle(oldVehicle, newVehicle);
 }
 
 // Delete a vehicle record
-void VehicleService::deleteVehicle(int year, const std::string& make, const std::string& model)
+void VehicleService::deleteVehicle(int id,int year, const std::string& make, const std::string& model)
 {
-    VehicleModel vehicle(year, make, model);
+    VehicleModel vehicle(id,year, make, model);
     repository.removeVehicle(vehicle);
 }

@@ -1,6 +1,7 @@
 #include "VehicleController.h"
 #include <string>
 #include <Windows.h>
+#include <sstream>
 
 
 // Constructor
@@ -46,10 +47,35 @@ void VehicleController::run()
             std::cin.ignore();
             std::getline(std::cin, make);
 
+
+
+            std::vector<VehicleModel> vehicles;
+            std::ifstream file("Vehicles.txt");
+            int id = 0;
+            if (file.is_open())
+            {
+                std::string line;
+                
+                while (std::getline(file, line))
+                {
+                    std::stringstream lineString(line);
+                    std::string token;
+
+                    std::getline(lineString, token, ',');
+                   
+                    std::stringstream(token) >> id;
+
+                   
+                }
+                file.close();
+            }
+            id++;
+
+
             std::cout << "Enter model: ";
             std::getline(std::cin, model);
 
-            service.createVehicle(year, make, model);
+            service.createVehicle(id,year, make, model);
             system("cls");
             std::cout << "Vehicle added successfully." << std::endl;
             system("pause");
@@ -86,6 +112,7 @@ void VehicleController::run()
         }
         case 3: 
         {
+            int id;
             int oldYear, newYear;
             std::string oldMake, oldModel, newMake, newModel;
             std::vector<VehicleModel> vehicles = service.getAllVehicles();
@@ -108,21 +135,27 @@ void VehicleController::run()
 
                     std::cout << std::endl;
                 }
-                system("pause");
-                system("cls");
             }
 
             std::cout << "Enter the details of the vehicle to update:" << std::endl;
+            std::cout << "Enter Id: ";
+            std::cin >> id;
 
-            std::cout << "Enter old year: ";
+            /*std::cout << "Enter old year: ";
             std::cin >> oldYear;
 
             std::cout << "Enter old make: ";
             std::cin.ignore();
             std::getline(std::cin, oldMake);
 
+
+
+
+
+
             std::cout << "Enter old model: ";
             std::getline(std::cin, oldModel);
+            */
 
             std::cout << "Enter new year: ";
             std::cin >> newYear;
@@ -134,7 +167,9 @@ void VehicleController::run()
             std::cout << "Enter new model: ";
             std::getline(std::cin, newModel);
 
-            service.updateVehicle(oldYear, oldMake, oldModel, newYear, newMake, newModel);
+
+
+            service.updateVehicle(id, 0, "oldMake", "oldModel", 0, newYear, newMake, newModel);
             system("pause");
             system("cls");
 
@@ -164,22 +199,24 @@ void VehicleController::run()
                 }
 
             }
-            int year;
+            int year,id;
             std::string make, model;
 
             std::cout << "Enter the details of the vehicle to delete:" << std::endl;
 
-            std::cout << "Enter year: ";
-            std::cin >> year;
+            std::cout << "Enter id: ";
+            std::cin >> id;
+           // std::cout << "Enter year: ";
+           // std::cin >> year;
 
-            std::cout << "Enter make: ";
-            std::cin.ignore();
-            std::getline(std::cin, make);
+            //std::cout << "Enter make: ";
+            //std::cin.ignore();
+            //std::getline(std::cin, make);
 
-            std::cout << "Enter model: ";
-            std::getline(std::cin, model);
+            //std::cout << "Enter model: ";
+            //std::getline(std::cin, model);
 
-            service.deleteVehicle(year, make, model);
+            service.deleteVehicle(id, 9, "make", "a");
             system("pause");
             system("cls");
 
